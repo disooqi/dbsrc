@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+{% block title %}User profile - {% endblock title %}
+{% block main %}
+<div class="row">
+	<div class="span8">
+<form action="/accounts/profile/edit/" method="POST">{% csrf_token %}
+
+	<h3>Basic Information</h3>
+
+
+{{ user_form.non_field_errors }}
+	<div class="fieldWrapper">
+        {{ person_form.social_id.errors }}
+		{{ person_form.social_id.label_tag }}
+        {{ person_form.social_id }}
+    </div>
+	<div class="fieldWrapper">
+        {{ user_form.first_name.errors }}
+		{{ user_form.first_name.label_tag }}
+        {{ user_form.first_name }}
+    </div>	
+	<div class="fieldWrapper">
+        {{ person_form.second_name.errors }}
+		{{ person_form.second_name.label_tag }}
+        {{ person_form.second_name }}
+    </div>
+	<div class="fieldWrapper">
+        {{ person_form.third_name.errors }}
+		{{ person_form.third_name.label_tag }}
+        {{ person_form.third_name }}
+    </div>
+	<div class="fieldWrapper">
+        {{ user_form.last_name.errors }}
+		{{ user_form.last_name.label_tag }}
+        {{ user_form.last_name }}
+    </div>
+	<div class="fieldWrapper">
+        {{ person_form.dob.errors }}
+		{{ person_form.dob.label_tag }}
+        {{ person_form.dob }}
+    </div>
+	<div class="fieldWrapper">
+        {{ person_form.gender.errors }}
+		{{ person_form.gender.label_tag }}
+        {{ person_form.gender }}
+    </div>
+	<div class="fieldWrapper">
+        {{ person_form.nationality.errors }}
+		{{ person_form.nationality.label_tag }}
+        {{ person_form.nationality }}
+    </div>
+<div class="text-header">
+		<h3 style="">Contact Information</h3>
+</div>
+	<div class="fieldWrapper">
+        {{ user_form.email.errors }}
+		{{ user_form.email.label_tag }}
+        {{ user_form.email }}
+    </div>
+	<div class="fieldWrapper">
+        {{ person_form.cellular.errors }}
+		{{ person_form.cellular.label_tag }}
+        {{ person_form.cellular }}
+    </div>
+	<div class="fieldWrapper">
+        {{ person_form.home_phone.errors }}
+		{{ person_form.home_phone.label_tag }}
+        {{ person_form.home_phone }}
+    </div>
+	<div class="fieldWrapper">
+        {{ person_form.address.errors }}
+		{{ person_form.address.label_tag }}
+        {{ person_form.address }}
+    </div>
+	<input type="submit" value="Save" />
+</form>
+	</div>
+</div>
+{% endblock main %}

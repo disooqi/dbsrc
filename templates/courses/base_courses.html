@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block title %}Available Courses - {% endblock title %}
+{% block courses %}class="active"{% endblock %}
+{% block main %}
+<div class="row">
+{% comment %}
+      <div class="span3 bs-docs-sidebar" style="width: 270px;">
+        <ul class="nav nav-list bs-docs-sidenav affix" >
+          <li><a href="#components"><i class="icon-chevron-right"></i> 1. Choose components</a></li>
+          <li><a href="#plugins"><i class="icon-chevron-right"></i> 2. Select jQuery plugins</a></li>
+          <li><a href="#variables"><i class="icon-chevron-right"></i> 3. Customize variables</a></li>
+          <li><a href="#download"><i class="icon-chevron-right"></i> 4. Download</a></li>
+        </ul>
+      </div>
+{% endcomment %}
+<div class="span10">
+		<ul class="breadcrumb">
+			<li><a href="/">Home</a> <span class="divider">/</span></li>
+			<li class="active">Courses</li>
+		</ul>
+<h2>Available Courses</h2>
+<hr />
+{% if user.is_authenticated %}<!--check if the user is only student-->
+	<p>For list of courses you have enrolled in <a class="btn btn-small btn-primary" href="/courses/my_courses/">click here</a></p>
+{% endif %}
+{% if courseTypes %}
+    <ul >
+    {% for type in courseTypes %}
+        <li class="course"><a  href="/courses/{{ type.id }}/">{{ type.title }}</a></li>
+
+		{% if forloop.counter|divisibleby:"3" %}
+			<br class="clear"/>
+		{% endif %}
+    {% endfor %}
+    </ul>
+	<br class="clear"/>
+{% else %}
+    <p>No courses are available.</p>
+{% endif %}
+	</div>
+</div>
+{% endblock main %}

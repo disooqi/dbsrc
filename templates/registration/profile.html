@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% block title %}User profile - {% endblock title %}
+{% block main %}
+<div class="row">
+	<div class="span8">
+		<ul class="breadcrumb">
+			<li><a href="/">Home</a> <span class="divider">/</span></li>
+			<li class="active">My profile</li>
+		</ul>
+	<h2>User profile</h2>
+	<hr /> 
+	<div class="text-header">
+		<h3 style="">Basic Information</h3>
+	</div>
+	<div class="user-info">
+		<label >Username:</label><span>{{user.username}}</span> <br class="clear"/>
+		<label >Social ID:</label><span>{{user.person.social_id|default:"N/A"}}</span><br class="clear"/>
+		<label >First Name:</label><span>{{user.first_name|default:"N/A"}}</span><br class="clear"/>
+		<label >Father's Name:</label><span>{{user.person.second_name|default:"N/A"}}</span><br class="clear"/>
+		<label >Grandfather's Name:</label><span>{{user.person.third_name|default:"N/A"}}</span><br class="clear"/>
+		<label >Last Name:</label><span>{{user.last_name|default:"N/A"}}</span><br class="clear"/>
+		<label >Data of Birth:</label><span>{{user.person.dob|default:"N/A"}}</span><br class="clear"/>
+		<label >Gender:</label><span>{{user.person.gender|default:"N/A"}}</span><br class="clear"/>
+		<label >Nationality:</label><span>{{user.person.nationality|default:"N/A"}}</span><br class="clear"/>
+	</div>
+	<div class="step-links" style="text-align:center;"><a href="/accounts/profile/edit/">Edit Information</a></div>
+	<div class="text-header">
+	<h3>Contact Information</h3>
+	</div>
+	<div class="user-info">
+		<label >Email:</label><span>{{user.email|default:"N/A"}}</span><br class="clear"/>
+		<label >Mobile phone:</label><span>{{user.person.cellular|default:"N/A"}}</span><br class="clear"/>
+		<label >Home phone:</label><span>{{user.person.home_phone|default:"N/A"}}</span><br class="clear"/>
+		<label >Address:</label><span>{{user.person.address|default:"N/A"}}</span><br class="clear"/>
+	</div>
+	<div class="step-links" style="text-align:center;"><a href="/accounts/profile/edit/">Edit Information</a></div>
+	
+	
+	<div class="text-header">
+		<h3>Other Information</h3>
+	</div>
+	<br />
+	<div class="user-info">
+		<label >Academic Qualification:</label><span>{{user.person.academic_qualification|default:"N/A"}}</span><br class="clear"/>
+		<label >University:</label><span>{{user.person.university|default:"N/A"}}</span><br class="clear"/>
+		<label >Occupation:</label><span>{{user.person.student.occupation|default:"N/A"}}</span><br class="clear"/>
+		<label >Employer:</label><span>{{user.person.student.employer|default:"N/A"}}</span><br class="clear"/>
+	</div>		
+	<div class="step-links" style="text-align:center;"><a href="/accounts/profile/edit/">Edit Information</a></div>
+	</div>
+</div>
+{% endblock main %}

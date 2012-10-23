@@ -1,0 +1,48 @@
+note: this document assume that the mysql server and apache are installed.
+
+1. install python 2.7
+	a. modify the path
+	
+2. install Django 1.4
+	a. a. modify the path
+
+3. you'll need MySQLdb, version 1.2.1p2 or higher. You will also want to read the database-specific notes for the MySQL backend.
+	a. CREATE DATABASE <dbname> CHARACTER SET utf8;
+
+4. install mod_wsgi-win32-ap22py27-3.3 module
+	a. The appropriate mod_wsgi.so file for the version of Python and Apache being used should be copied into the Apache modules directory
+	b. to download "mod_wsgi.so" go to "http://code.google.com/p/modwsgi/wiki/InstallationInstructions"
+	c. Loading Module Into Apache
+	d. Restart Apache Web Server
+	e. configure mod_wsgi to run a WSGI application
+	
+		WSGIScriptAlias / /path/to/mysite.com/mysite/wsgi.py
+		WSGIPythonPath /path/to/mysite.com
+
+		<Directory /path/to/mysite.com/mysite>
+		<Files wsgi.py>
+		Order deny,allow
+		Allow from all
+		</Files>
+		</Directory>
+		
+	f. integration With Django
+	
+
+6. modify the setting file of the web site in both 'ENGINE' and 'NAME'
+7. python manage.py syncdb
+8. add groups 'staff', 'students' and 'instructors'
+
+----------------------------------------------------------------------------------------
+Note that it is highly recommended that the WSGI application script file in this case NOT be placed within the existing DocumentRoot for your main Apache installation, or the particular site you are setting it up for. This is because if that directory is otherwise being used as a source of static files, the source code for your application might be able to be downloaded.
+
+You also should not use the home directory of a user account, as to do that would mean allowing Apache to serve up any files in that account. In this case any misconfiguration of Apache could end up exposing your whole account for downloading.
+
+It is thus recommended that a special directory be setup distinct from other directories and that the only thing in that directory be the WSGI application script file, and if necessary any support files it requires.
+
+
+--------------------------------------------------------------------------------------------
+Do note however that doing so will mean that any static files contained in the DocumentRoot will be hidden and requests against URLs pertaining to the static files will instead be processed by the WSGI application.
+
+
+-------------------------------------------------------------------------------------------------------

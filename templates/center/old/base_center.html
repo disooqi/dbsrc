@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block image %}
+				<img id="header-img" src="{{ STATIC_URL }}title.png" />
+{% endblock image %}
+
+{% block main %}
+ 
+	{% if news_entries %}
+	
+		{% for entry in news_entries %}
+			<div class="content-block main-content">
+				<div class="cb-title"> {{entry.title}} <p class="cb-date">{{entry.pub_date}}</p></div>
+				
+				<div class="cb-body">{{entry.content}}</div>
+				<a class="cb-trailer" href="/events/article/{{entry.id}}/">continue reading ...</a>	
+			</div>
+		{% endfor %}
+		<br class="clear"/>
+		<br />
+		<br />
+		<br />
+		<div class="step-links" style="margin-left:auto;margin-right:auto;width:245px;">
+			<a href="/events/?page=1" style="">More news and events</a>
+		</div>
+		<br />
+		<br />
+		<br />
+	
+	{% else %}
+		<p class="zelta">No news or events are available.</p>
+	{% endif %}
+{% endblock main %}

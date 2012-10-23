@@ -1,0 +1,33 @@
+			{% if wizard.form.errors %}
+			<div class="alert alert-error">
+					<ul>
+						<li>Check error blow</li>
+					</ul>
+					{{ wizard.form.non_field_errors }}					
+			</div>
+			{% endif %}	
+			{% for hidden in wizard.form.hidden_fields %}
+				{{ hidden }}
+			{% endfor %}
+
+			<div class="control-group {% if wizard.form.cellular.errors %}error{% endif %}">
+				<label class="control-label" for="id_{{ wizard.form.cellular.html_name }}">{{ wizard.form.cellular.label }}</label>
+				<div class="controls">					
+					<input id="id_{{ wizard.form.cellular.html_name }}" type="text" name="{{ wizard.form.cellular.html_name }}" placeholder="{{ wizard.form.cellular.label }}" maxlength="20">
+					<span class="help-inline"> {% for error in wizard.form.cellular.errors %}{{ error }}{% endfor %}</span>
+				</div>
+			</div>
+			<div class="control-group {% if wizard.form.home_phone.errors %}error{% endif %}">
+				<label class="control-label" for="id_{{ wizard.form.home_phone.html_name }}">{{ wizard.form.home_phone.label }}</label>
+				<div class="controls">					
+					<input id="id_{{ wizard.form.home_phone.html_name }}" type="text" name="{{ wizard.form.home_phone.html_name }}" placeholder="{{ wizard.form.home_phone.label }}" maxlength="20">
+					<span class="help-inline"> {% for error in wizard.form.home_phone.errors %}{{ error }}{% endfor %}</span>
+				</div>
+			</div>
+			<div class="control-group {% if wizard.form.address.errors %}error{% endif %}">
+				<label class="control-label" for="id_{{ wizard.form.address.html_name }}">{{ wizard.form.address.label }}</label>
+				<div class="controls">
+				  <textarea id="id_{{ wizard.form.address.html_name }}" class="input-xxlarge" name="{{ wizard.form.address.html_name }}" rows="5" cols="40" placeholder="Address"></textarea>
+				  <span class="help-inline">{% for error in wizard.form.address.errors %}{{ error }}{% endfor %}</span>
+				</div>
+			</div>

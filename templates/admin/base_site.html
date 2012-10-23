@@ -1,0 +1,11 @@
+{% extends "admin/base.html" %}
+{% load i18n %}
+
+{% block title %}{{ title }} | {% trans 'DBSRC site admin' %}{% endblock %}
+
+{% block branding %}
+{# Center of Database and Software Research #}
+<h1 id="site-name">{% trans 'DBSRC administration' %}</h1>
+{% endblock %}
+
+{% block nav-global %}{% endblock %}

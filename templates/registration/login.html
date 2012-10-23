@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% load url from future %}
+
+{% block title %} Login - Database and Software Research Center{% endblock title %}
+
+{% block main %}
+<div class="row">
+	<br /><br /><br /><br /><br /><br />
+	<div class="span8">
+		<form class="form-horizontal" method="post" action="{% url 'django.contrib.auth.views.login' %}">{% csrf_token %}
+			{% if form.errors %}
+			<div class="alert alert-error">
+					<ul>
+						<li>Check error blow</li>
+					</ul>
+					{{ form.non_field_errors }}
+			</div>
+			{% endif %}	
+			<!--  -->
+			{% for hidden in form.hidden_fields %}
+				{{ hidden }}
+			{% endfor %}
+			<div class="fieldWrapper control-group {% if form.username.errors %}error{% endif %}">
+				<label class="control-label" for="id_{{ form.username.html_name }}">Username</label>
+				<div class="controls">					
+					<input id="id_{{ form.username.html_name }}" type="text" name="{{ form.username.html_name }}" placeholder="Username">					
+					<span class="help-inline"> {% for error in form.username.errors %}{{ error|escape }}{% endfor %}</span>
+				</div>
+			</div>
+			<div class="fieldWrapper control-group {% if form.password.errors %}error{% endif %}">
+				<label class="control-label" for="id_{{ form.password.html_name }}">Password</label>
+				<div class="controls">
+				  <input id="id_{{ form.password.html_name }}" type="password" name="{{ form.password.html_name }}"  placeholder="Password">
+				  <span class="help-inline"> {% for error in form.password.errors %}{{ error|escape }}{% endfor %}</span>
+				</div>
+			</div>
+			<div class="control-group">
+				<div class="controls">
+				  <label class="checkbox">
+					<input type="checkbox" checked="checked"> Remember me
+				  </label>
+				  <button type="submit" class="btn">Sign in</button><br /><br />
+				  <a href="/accounts/password_reset/">Forgot your password?</a><br />
+				  <a href="/accounts/signup/">Create new user account?</a>
+				</div>
+			</div>
+			<input type="hidden" name="next" value="{{ next }}" />
+		</form>
+	</div>
+</div>
+{% endblock main %}

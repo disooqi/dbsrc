@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block title %} Student Registeration - {% endblock title %}
+{% block main %}
+<div class="row">
+	<div class="span8">
+	<h2>Registeration to "{{course.title}}" Course</h2>
+	<hr />
+	<form action="/courses/enroll/{{ course.id }}/" method="POST">{% csrf_token %}
+		{% include "form_snippet.html" %}
+		<br />
+		<div class="alert">
+		 <button type="button" class="close" data-dismiss="alert">×</button>
+  <strong>Warning!</strong> Best check yo self, you're not looking too good.
+			<ul>
+				<li>يجب دفع مصاريف الدورة في خلال ثلاث أيام والا اعتبر التسجيل لاغيا</li>
+				<li>في حال تأخرك عن دفع المصاريف وأكتمال العدد الاقصى للطلبة في الدورة يتم أيضا إلغاء التسجيل</li>
+				<li>في حالة الاعتذار عن حضور الدورة قبل بدايتها يتم خصم 10% مصاريف إدارية ولا يتم خصم هذا المبلغ في حالة إلغاء او تأخر إنعقاد الدورة عن ميعادها.</li>
+				<li>لا يمكن للدارس استرداد رسوم الدورة بعد انعقاد المحاضرة الأولى.</li>
+			</ul>
+		</div>
+		<br />
+		<div class="submit"><input id="id_submit" class="big-btn" type="submit" value="Enroll"></div>
+	</form>
+<br />
+<br />
+<br />
+
+	</div>	
+</div>
+{% endblock main %}

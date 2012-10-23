@@ -1,0 +1,49 @@
+﻿{% extends "base.html" %}
+<!--{#{% block head %}{{ wizard.form.media }}{% endblock %}#}-->
+{% block title %}Signup wizard - {% endblock title %}
+{% block main %}
+<div class="row">
+	<div class="span8">
+		<br /><br />
+		<!--<div class="progress progress progress-striped active">
+		  <div class="bar" style="width: 66%"></div>
+		</div>-->
+<div class="wizard">
+    <a class="{% if wizard.steps.step1 == 1 %}current{% endif %}" style="text-decoration:none;"><span class="badge {% if wizard.steps.step1 == 1 %}badge-inverse{% endif %}">1</span> Account set up</a>
+    <a class="{% if wizard.steps.step1 == 2 %}current{% endif %}" style="text-decoration:none;"><span class="badge {% if wizard.steps.step1 == 2 %}badge-inverse{% endif %}">2</span> Identity information</a>
+    <a class="{% if wizard.steps.step1 == 3 %}current{% endif %}" style="text-decoration:none;"><span class="badge {% if wizard.steps.step1 == 3 %}badge-inverse{% endif %}">3</span> Contact information</a>
+</div>
+<br /><br /><br />
+<!--{# <p>Step {{ wizard.steps.step1 }} of {{ wizard.steps.count }}</p> #}-->
+		<form class="form-horizontal" action="" method="post">{% csrf_token %}
+		{{ wizard.management_form }}
+		<!--{#  {{ wizard.form }}   #}-->
+		
+		{% if wizard.steps.step1 == 1 %}
+			{% include "formtools/wizard/step1.html" %}
+		{% elif wizard.steps.step1 == 2 %}
+			{% include "formtools/wizard/step2.html" %}
+		{% elif wizard.steps.step1 == 3 %}
+			{% include "formtools/wizard/step3.html" %}
+		{% endif %}
+		
+
+			<div class="control-group">
+				<div class="controls">
+				<div class="btn-group ">
+											
+						{% if wizard.steps.prev %}
+						 <button class="btn" name="wizard_goto_step" type="submit" value="{{ wizard.steps.first }}">&laquo; First step</button>
+							 {% if wizard.steps.step1 > 2 %}
+							 <button class="btn" name="wizard_goto_step" type="submit" value="{{ wizard.steps.prev }}">&lsaquo; Prev step</button>
+							 {% endif %}
+						{% endif %}
+						<button type="submit" class="btn">Proceed &rsaquo;</button>
+					</div>
+				
+				</div>
+			  </div>
+		</form>
+	</div>
+</div>
+{% endblock main %}

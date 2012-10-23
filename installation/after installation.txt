@@ -1,0 +1,10 @@
+add staff group
+add students group
+add instructors group
+
+reserved usernames:
+mohamed, ahmed, ali, abdallah, mahmoud, zaki, mariam, asmaa, amr, ibrahim, desouki, disooqi, eldesouki, moataz, mostafa,
+ziad, shimaa, omr, Ammar, hamdy, waleed, kareem, walid, karim, mervat, ragia, asem, zakaria, fareed, marwa, tawfik, google,
+facebook, love, lover, yahoo, bing, retrieval, nlp, said, saeed, saif, hisham, hesham, nermeen, sherif, shereef, sharif,
+shareef, gamal, esam, iman, eman, islam, eslam, mervat_gheith, hisham_hefny, waleed_arafa, kareem darwish, lila, fatma, twitter, heart, black, white, blue, purble, orange, yellow, green, ross, geoy, pheope, racheil, red, gebely, emad, hasan,
+hassan, mohsen, hasanein, hosean, hesein,

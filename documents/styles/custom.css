@@ -1,0 +1,188 @@
+/*new one*/
+.course, .course-small{
+	list-style: none;
+	display:inline;	
+	float: left;
+}
+
+.course a:link,.course a:visited{
+	text-decoration:none;	
+	color:white;
+	width:230px;	
+	text-align:center;
+	
+	font-weight:bold;
+	font-size:30px;
+	word-wrap:break-word;
+	line-height:40px;
+	padding-left:5px;
+	padding-right:5px;
+	padding-top:50px;
+			
+	padding-bottom:50px;
+	margin:20px;
+	border: 5px solid #24bcfb;
+	background-color:#049cdb;
+	display:block;
+	border-radius:40px;
+	-moz-border-radius:40px;
+	-moz-box-shadow: 0px 15px 15px #7F7F7F;
+	box-shadow: 0px 7px 10px #7F7F7F;
+}
+
+.course a:hover,.course a:active{
+	opacity:0.8;
+	filter:alpha(opacity=80); /* For IE8 and earlier */
+}
+
+.course-small a:link,.course-small a:visited{
+	width:185px;	
+	font-size:15px;
+	line-height:20px;
+	padding-left:3px;
+	padding-right:3px;
+	padding-top:15px;
+	padding-bottom:15px;
+	margin:10px;
+	border: 2px;
+	border-radius:10px;
+	-moz-border-radius:10px;
+	-moz-box-shadow: 0px 5px 5px #7F7F7F;
+	box-shadow: 0px 5px 5px #7F7F7F;
+}
+
+.success a:link,.success a:visited{
+	border: #66c566;
+	background-color:#46a546;
+}
+
+.failure a:link,.failure a:visited{
+	border: #bd463d;
+	background-color:#9d261d;
+}
+
+.message{
+	background-color:#f9f9f9;
+	border:1px solid #ddd;
+	margin:10px;
+	margin-right:0px;
+	padding-top:10px;
+	padding-left:20px;
+	padding-right:10px;
+	border-radius:5px;
+	-moz-border-radius:5px;
+}
+.message .subject{
+	font-weight:bold;
+}
+.message .datetime{
+	color: #777;
+	font-size:10px;
+}
+.message .content{
+	margin-top:10px;
+}
+.schedule{
+	
+	margin-left:auto;
+	margin-right:auto;
+	color:white;
+	/*width:80%;
+	font-family: 'Electrolize', sans-serif;*/
+}
+.session{
+	float:left;
+	width:6em;
+	line-height:15px;
+	text-align:center;
+	padding:10px;
+	padding-top:15px;
+	padding-bottom:15px;
+	margin:5px;
+	/*
+	background-color:#F17022;
+	*/
+	background-color:#049cdb;	
+	border-radius:25px;
+	-moz-border-radius:25px;	
+}
+.session hr{
+	color:white;
+	margin:5px;
+}
+.attend{
+	background-color:#46a546;
+} 
+.absence{
+	background-color:#9d261d;
+}
+
+.cu-logo{
+	width:320px;
+	height:60px;
+	position:absolute;
+	left:220px;
+	top:50px;
+	z-index:66;
+	padding:0px;
+	margin:0px;
+}
+.cu-logo img{
+	width:320px;
+	z-index:0; 
+	border-right:5px solid white;
+	border-radius:5px 5px 5px 5px;
+	-moz-border-radius:5px 5px 5px 5px;
+}
+.cu-logo h1, .cu-logo h2, .cu-logo h3, .cu-logo h4{
+	position:absolute;
+	left:85px;
+	top:10px;
+	color:#ffffff;
+}
+.cu-dom{
+	float:right;
+	padding:0px;
+	margin:0px;
+	position:absolute;
+	right:120px;
+	top:340px;
+}
+
+.staff{
+	padding:0px;
+}
+.staff .person{
+	width:100;
+	background-color: #f8f8f8;
+	border:1px solid #e0e0e0;
+	/*border-top:1px solid #f0f0f0;
+	border-bottom:1px solid #f0f0f0;*/
+	margin:10px;
+	margin-bottom:30px;
+	margin-right:180px;
+	padding:10px;
+	padding-bottom:0px;
+	border-radius:5px;
+	-moz-border-radius:5px;
+}
+.staff img{
+	float:right;
+	margin-right:10px;
+	width:80px;
+	height:100px;
+}
+.staff hr{
+	margin:0px;
+}
+.person .name{
+font-weight:bold;
+margin:5px;
+}
+
+.clear{
+	clear:both;
+	border:0;
+	margin:0;
+	padding:0;
+}

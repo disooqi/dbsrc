@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %} Student Enrollment - {% endblock title %}
+{% block main %}
+<div class="row">
+	<div class="span8">
+	<h2>Thank You for Enrollment</h2>
+	<hr />
+	<div class="alert alert-block" style="direction:rtl;">
+		<button type="button" class="close pull-left" data-dismiss="alert">×</button>
+		<h4>تنبيه هام:</h4>
+		<ul>
+			<li><h5>يجب دفع مصاريف الدورة في خلال ثلاث أيام والا اعتبر التسجيل لاغيا (مع العلم يمكنك التسجيل مرة أخرى في نفس الدورة اذا تم إلغاء التسجيل وكانت الدورة موجودة)</h5></li>
+			<li><h5>في حال تأخرك عن دفع المصاريف وأكتمال العدد الاقصى للطلبة في الدورة يتم أيضا إلغاء التسجيل</h5></li>
+			<li><h5>في حالة الاعتذار عن حضور الدورة قبل بدايتها يتم خصم 10% مصاريف إدارية ولا يتم خصم هذا المبلغ في حالة إلغاء او تأخر إنعقاد الدورة عن ميعادها.</h5></li>
+			<li><h5>لا يمكن للدارس استرداد رسوم الدورة بعد انعقاد المحاضرة الأولى.</h5></li>
+		</ul>
+	</div>
+	<p>Your Information has been saved in our database.</p>
+	<p>We will contact you as soon as possible</p>
+	<p>You still can modify you information <a href="/accounts/profile/">here</a></p>
+	
+	{#<h2 style="text-align:center;margin-top:3em;">Thank You</h2>#}
+	<br />
+	<br />
+	</div>
+</div>
+{% endblock main %}

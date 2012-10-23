@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %} Updating Student Information - Database and Software Research Center{% endblock title %}
+
+{% block main %}
+	<h2>Updating Student Information</h2>
+	<hr />
+	<form action="/courses/student/{{student_id}}/update/" method="POST">{% csrf_token %}
+		{% include "form_snippet.html" %}
+		<br />
+		<div class="submit"><input id="id_submit" class="big-btn" type="submit" value="Register"></div>
+	</form>
+<br />
+<br />
+<br />
+
+<br />
+<br />
+{% endblock main %}

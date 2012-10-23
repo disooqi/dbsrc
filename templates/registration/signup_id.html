@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+{% block title %} Signup - step 2 - {% endblock title %}
+{% block main %}
+<div class="row">
+	<div class="span8">
+	<br />	
+		<div class="progress progress-warning progress-striped active">
+		  <div class="bar" style="width: 33%"></div>
+		</div>
+
+	<h2>Create new account - identity information</h2>
+	<hr />
+		<form class="form-horizontal" method="post" action="/accounts/signup/identityinfo/">{% csrf_token %}
+			{% if form.errors %}
+			<div class="alert alert-error">
+					<ul>
+						<li>Check error blow</li>
+					</ul>
+					{{ form.non_field_errors }}					
+			</div>
+			{% endif %}	
+			{% for hidden in form.hidden_fields %}
+				{{ hidden }}
+			{% endfor %}
+
+			<div class="control-group {% if form.social_id.errors %}error{% endif %}">
+				<label class="control-label" for="id_{{ form.social_id.html_name }}">{{ form.social_id.label }}</label>
+				<div class="controls">					
+					<input id="id_{{ form.social_id.html_name }}" type="text" name="{{ form.social_id.html_name }}" placeholder="{{ form.social_id.label }}" maxlength="20">
+					<span class="help-inline"> {% for error in form.social_id.errors %}{{ error }}{% endfor %}</span>
+				</div>
+			</div>
+			<div class="control-group {% if form.gender.errors %}error{% endif %}">
+				<label class="control-label" for="id_{{ form.gender.html_name }}">{{ form.gender.label }}</label>
+				<div class="controls">					
+					<!--{# also {{ form.gender }} #}-->
+					<select name="{{ form.gender.html_name }}" id="id_{{ form.gender.html_name }}">
+						<option value="">Choose gender</option>
+						<option value="M">Male</option>
+						<option value="F">Female</option>
+					</select>					
+					<span class="help-inline"> {% for error in form.gender.errors %}{{ error }}{% endfor %}</span>
+				</div>
+			</div>
+			<div class="control-group {% if form.dob_day.errors or form.dob_month.errors or form.dob_year.errors %}error{% endif %}">
+				<label class="control-label" for="id_dob">Date of Birth</label>
+				<div class="controls">					
+					<!--{#<input id="id_{{ form.dob.html_name }}" type="text" name="{{ form.dob.html_name }}" placeholder="{{ form.dob.label }}">#}	-->
+					<input id="id_{{ form.dob_day.html_name }}" type="text" name="{{ form.dob_day.html_name }}" placeholder="e.g. 12" maxlength="2" style="width:60px; margin-bottom:10px;"><span class="help-inline"> {% for error in form.dob_day.errors %}{{ error }}{% endfor %}</span><br />
+					<input id="id_{{ form.dob_month.html_name }}" type="text" name="{{ form.dob_month.html_name }}" placeholder="e.g. 03" maxlength="2" style="width:60px; margin-bottom:10px;"><span class="help-inline"> {% for error in form.dob_month.errors %}{{ error }}{% endfor %}</span><br />
+					<input id="id_{{ form.dob_year.html_name }}" type="text" name="{{ form.dob_year.html_name }}" placeholder="e.g. 1982" maxlength="4" style="width:60px; margin-bottom:10px;"><span class="help-inline"> {% for error in form.dob_year.errors %}{{ error }}{% endfor %}</span><br />
+				</div>
+			</div>
+			<div class="control-group {% if form.nationality.errors %}error{% endif %}">
+				<label class="control-label" for="id_{{ form.nationality.html_name }}">{{ form.nationality.label }}</label>
+				<div class="controls">					
+					<input id="id_{{ form.nationality.html_name }}" type="text" name="{{ form.nationality.html_name }}" placeholder="{{ form.nationality.label }}" maxlength="20">
+					<span class="help-inline"> {% for error in form.nationality.errors %}{{ error }}{% endfor %}</span>
+				</div>
+			</div>
+			<div class="control-group {% if form.academic_qualification.errors %}error{% endif %}">
+				<label class="control-label" for="id_{{ form.academic_qualification.html_name }}">{{ form.academic_qualification.label }}</label>
+				<div class="controls">					
+					<input id="id_{{ form.academic_qualification.html_name }}" type="text" name="{{ form.academic_qualification.html_name }}" placeholder="{{ form.academic_qualification.label }}" maxlength="20">
+					<span class="help-inline"> {% for error in form.academic_qualification.errors %}{{ error }}{% endfor %}</span>
+				</div>
+			</div>
+			  <div class="control-group">
+				<div class="controls">
+				  <button type="submit" class="btn">Register</button>
+				</div>
+			  </div>
+		</form>
+	</div>
+</div>
+{% endblock main %}

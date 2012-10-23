@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block head %}
+{{ wizard.form.media }}
+{% endblock %}
+{% block title %} Signup wizard - {% endblock title %}
+{% block main %}
+<div class="row">
+	<div class="span8">
+	{% for data in form_data %}
+		{{data}}<br />
+	{% endfor %}
+	</div>
+</div>
+{% endblock main %}

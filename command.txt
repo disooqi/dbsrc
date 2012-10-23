@@ -1,0 +1,14 @@
+cd C:\D\workspace\work\DBSRC\site
+cd D:\Google Drive\Desouki's Documents\work\DBSRC\site
+C:\dbsrc.cu.edu.eg
+
+
+python manage.py runserver
+python manage.py syncdb
+python manage.py shell
+python manage.py startapp polls
+python manage.py collectstatic
+
+
+disooqi
+disooqi@gmail.com

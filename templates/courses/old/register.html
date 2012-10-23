@@ -1,0 +1,26 @@
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+<h1>Course Title: {{course.course_title}}</h1>
+<h2>starts in: {{course.start_date}}</h2>
+
+<form method="post" action="/courses/{{course.id}}/thankyou/">
+{% csrf_token %}
+<label for="i1">Name:</label>
+<input type="text" name="name" id="i1" size="75"/>
+<br />
+<label for="i2">Phone:</label>
+<input type="text" name="phone" id="i2" size="75"/>
+<br />
+<label for="i3">EMail:</label>
+<input type="text" name="email" id="i3" size="75"/>
+<br />
+<label for="i4">ID:  </label>
+<input type="text" name="id" id="i4" size="75"/>
+<br />
+<label for="i5">University:</label>
+<input type="text" name="university" id="i5" size="75"/>
+
+<br />
+<input type="submit" name="" value="register">
+</form>
+

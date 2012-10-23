@@ -1,0 +1,110 @@
+{% extends "base.html" %}
+{% block title %}{{type}} Course - {% endblock title %}
+{% block main %}
+<div class="row">
+	<div class="span10">
+		<ul class="breadcrumb">
+			<li><a href="/">Home</a> <span class="divider">/</span></li>
+			<li class="active"><a href="/courses/">Courses</a> <span class="divider">/</span></li>
+			<li class="active">{{type}}</li>
+		</ul>
+	<h2>"{{type}}" Course</h2>
+	<hr />
+	<div id="myModal" class="modal hide fade in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+              <h3 id="myModalLabel">Course Description</h3>
+            </div>
+            <div class="modal-body">
+              <h4>Course Introduction</h4>
+              <p>{{ type.intro }}fg</p>
+
+              <h4>Course Objective</h4>
+              <p>This  {{ type.objective }} on hover.</p>
+
+              <h4>Course Syllabus</h4>
+              <p>oltips {{ type.syllabus }} on hover.</p>
+              <hr>
+              <h4>Overflowing text to show optional scrollbar</h4>
+              <p>We set a fixed <code>max-height</code> on the <code>.modal-body</code>. Watch it overflow with all this extra lorem ipsum text we've included.</p>
+              
+            </div>
+            <div class="modal-footer">
+              <button class="btn" data-dismiss="modal">Close</button>
+              <!--<button class="btn btn-primary">Save changes</button>-->
+            </div>
+    </div>
+	<p>Find information about the course content and material, course objectives and other general information in the following link<p>
+	<a data-toggle="modal" href="#myModal" class="btn btn-primary">Course Description</a>
+	<!--<a href="/courses/description/{{type.id}}/" class="big-btn">Course Description</a>-->
+	<br /><br /><br />
+	<h3>Available Times</h3>
+	<hr style="margin-top:0px;" />
+	{% if courseInstances %}
+	<p>Click one of the button below to view more information about the course.</p>
+	<table class="table table-striped">
+	<!--<caption>Available times</caption>-->
+		<thead>
+            <tr>
+				<th>Id</th>
+                <th>Start date</th>
+                <th>End date</th>
+                <th>Instructor</th>
+				<th>Total hours</th>
+				<th>Fees</th>
+				<th>Information</th>
+				<th>Enrollment</th>
+				<th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+			
+			{% for course, sessions in schedule.items %}
+			<tr>
+				<td>{{ course.id}}</td>
+				<td>{{ course.start_date}}</td>
+				<td>{{ course.end_date}}</td>					
+				<td>{% if course.instructor %}{{ course.instructor}}{% else %} N/A {% endif %}</td>					
+				<td>{% if course.hours %}{{ course.hours}}{% else %} N/A {% endif %}</td>
+				<td>{% if course.fees %}{{ course.fees}} L.E{% else %} N/A {% endif %}</td>
+				<td><a class="btn" href="">More info.</a></td>
+				<td>
+					{% if course.id == 1 or course.id == 2 %}
+						<a class="btn" href="" disabled>Enroll</a>
+					{% elif course.id == 5 %}
+						<a class="btn" href="" disabled>Enroll</a>
+					{% else %}
+						<a class="btn btn-primary" href="/courses/enroll/{{ course.id }}/">Enroll</a>
+					{% endif %}
+				</td>
+				<td>
+					{% if course.id == 1 or course.id == 2 %}
+						<span class="label label-important">Closed</span>
+					{% elif course.id == 5 %}
+						<span class="label">Already enrolled in</span>
+					{% else %}
+						<span class="label label-success">Available</span>
+					{% endif %}
+				</td>
+				<!--{% if sessions|length > 0 %}
+				<p><span>Schedule:</span></p>
+				<div class="schedule">
+					{% for session in sessions %}						
+						<div class="session">{{session.date}} <hr/> {{session.period}} hours</div>
+					{% endfor %}
+				</div>
+				{% endif %}
+				<br style="clear:both;"/>
+				-->
+				<!--<a href="/courses/enroll/{{ course.id }}/" class="btn btn-primary">Enroll</a>-->
+			</tr>
+			{% endfor %}
+			
+		<tbody>
+	</table>
+	{% else %}
+		<p>Sorry no Courses are Available</p>
+	{% endif %}
+	</div>
+</div>
+{% endblock main %}

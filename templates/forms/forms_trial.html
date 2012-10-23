@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block title %}{{type}} My courses - {% endblock title %}
+{% block main %}
+<div class="row">
+	<div class="span8">
+		<p>A Form object encapsulates a <u>sequence of form fields</u> and <u>a collection of validation</u> rules that must be fulfilled in order for the form to be accepted.</p>
+		<p>If your form is going to be used to directly add or edit a Django model, you can use a ModelForm to avoid duplicating your model description.</p>
+		
+		<form action="/forms/" method="post">{% csrf_token %}
+		{% if contact_form %}
+			{{ contact_form.as_p }}
+		{% endif %}
+			<button type="submit">Submit</button>
+		</form>
+		<p>While you could access <i>request.POST</i> directly at this point, it is better to access <i>form.cleaned_data</i>. This data has not only <u>(1) been validated</u> but will also be <u>(2) converted in to the relevant Python types</u> for you.</p>
+		<p>There is no way to change data in a Form instance. Once a Form instance has been created, you should consider its data immutable, whether it has data or not.</p>
+		<p>You can access errors without having to call is_valid() first. The form's data will be validated the first time either you call is_valid() or access errors. The validation routines will only get called once, regardless of how many times you access errors or call is_valid(). This means that if validation has side effects, those side effects will only be triggered once.</p>
+		<p>Use initial to declare the initial value of form fields at runtime. For example, you might want to fill in a username field with the username of the current session. Only include the fields for which you're specifying an initial value; it's not necessary to include every field in your form.</p>
+		<p>Each field in a Form class is responsible not only for validating data, but also for "cleaning" it -- normalizing it to a consistent format.</p>
+		<p>Once you've created a Form instance with a set of data and validated it, you can access the clean data via its cleaned_data attribute. If your data does not validate, your Form instance will not have a cleaned_data attribute</p>
+		<p></p>
+		<p></p>
+		<p></p>
+		<p></p>
+		
+	</div>
+</div>
+{% endblock main %}

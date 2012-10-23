@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %} Course Discription - Database and Software Research Center{% endblock title %}
+{% block main %}
+<h2>Course Description of "{{ type.title }}"</h2>
+	<hr />
+	<pre class="zelta">{{ type.intro }}</pre>
+<h2>Aim of the Course</h2>
+	<hr />
+	<pre class="zelta">{{ type.objective }}</pre>
+<h2>Course Content</h2>
+	<hr />
+	<pre class="zelta">{{ type.syllabus }}</pre>
+
+<br />
+<br />
+<a href="/courses/{{ type.id }}/" class="big-btn" style="width:300px;height:40px;padding-top:30px;">Back to the Course Page</a>
+{% endblock main %}

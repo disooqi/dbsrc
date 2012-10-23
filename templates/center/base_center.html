@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% load disooqi_extras %}
+
+{% block home %}class="active"{% endblock %}
+{% block main %}
+      <!-- Main hero unit for a primary marketing message or call to action -->
+	  <br />
+      <div class="hero-unit">
+		  <a href="http://cu.edu.eg/">
+			<div class="cu-logo">
+				<img src="{% static "logo_bg.png"%}"/>
+				<h3>{{"Cairo University"|upper}}</h3>
+			</div>
+		  </a>
+        <h1>Center of Database and Software Research</h1>
+        <p style="width:49em;padding-left:10px;">Excellence in performance in the field of software and databases to improve the quality of the software industry, commensurate with the needs of the beneficiaries of local and regional programs and databases under the quality standards of local and global.</p>
+        <p style="padding-left:10px;"><a class="btn btn-primary btn-large" href="/about/">About us &raquo;</a></p>
+		<img class="cu-dom" src="{% static "back2.png"%}">
+		<br style="clear:both;"/>
+      </div>
+
+      <!-- Example row of columns -->
+	  {% if news_entries %}
+	  
+      <div class="row">
+	  {% for entry in news_entries %}
+		{%if entry.right_to_left %}
+        <div class="span4" style="direction:rtl;">
+		{% else %}
+		<div class="span4">
+		{% endif %}
+          <h2>{{entry.title}}</h2>
+		  <h6 class="muted">{{entry.pub_date}}</h6>
+		  {%if entry.content|length > 300 %}
+				<p>{{entry.content|truncatechars:300}}</p>
+		  {% else %}
+				<p>{{entry.content}}{% for i in entry.content|length|get_range:150 %}&nbsp;{% endfor %}</p>
+		  {% endif %}		  
+          <p><a class="btn" href="/events/article/{{entry.id}}/">View details &raquo;</a></p>
+        </div>
+		{% endfor %}
+      </div>
+	  <div class="step-links" style="margin-left:auto;margin-right:auto;width:245px;">
+			<a href="/events/?page=1" style="">More news and events</a>
+	</div>
+	  {% else %}
+		<p class="zelta">No news or events are available.</p>
+	{% endif %}
+            
+{% endblock main %}

@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% block title %} Signup - {% endblock title %}
+{% block main %}
+<div class="row">
+	<div class="span8">
+	<h2>Create new account</h2>
+	<hr />
+		<form class="form-horizontal" method="post" action="/accounts/signup/">{% csrf_token %}
+			{% if form.errors %}
+			<div class="alert alert-error">
+					<ul>
+						<li>Check error blow</li>
+					</ul>
+					{{ form.non_field_errors }}					
+			</div>
+			{% endif %}	
+			{% for hidden in form.hidden_fields %}
+				{{ hidden }}
+			{% endfor %}
+			
+			{# Include the visible fields #}
+			<div class="control-group {% if form.username.errors %}error{% endif %}">
+				<label class="control-label" for="id_{{ form.username.html_name }}">Username</label>
+				<div class="controls">					
+					<input id="id_{{ form.username.html_name }}" type="text" name="{{ form.username.html_name }}" placeholder="Username">					
+					<span class="help-inline"> {% for error in form.username.errors %}{{ error }}{% endfor %}</span>
+				</div>
+			</div>
+			<div class="control-group {% if form.password1.errors %}error{% endif %}">
+				<label class="control-label" for="id_{{ form.password1.html_name }}">Password</label>
+				<div class="controls">
+				  <input id="id_{{ form.password1.html_name }}" type="password" name="{{ form.password1.html_name }}"  placeholder="Password">
+				  <span class="help-inline"> {% for error in form.password1.errors %}{{ error }}{% endfor %}</span>
+				</div>
+			</div>
+			<div class="control-group {% if form.password2.errors %}error{% endif %}">
+				<label class="control-label" for="id_{{ form.password2.html_name }}">Password confirmation</label>
+				<div class="controls">
+				  <input id="id_{{ form.password2.html_name }}" type="password" name="{{ form.password2.html_name }}"  placeholder="Password confirmation">
+				  <span class="help-inline"> {% for error in form.password2.errors %}{{ error }}{% endfor %}</span>
+				</div>
+			</div>
+			<div class="control-group {% if form.email1.errors %}error{% endif %}">
+				<label class="control-label" for="id_{{ form.email1.html_name }}">Email Address</label>
+				<div class="controls">
+				  <input id="id_{{ form.email1.html_name }}" type="text" name="{{ form.email1.html_name }}" placeholder="E-mail">
+				  <span class="help-inline"> {% for error in form.email1.errors %}{{ error }}{% endfor %}</span>
+				</div>
+			</div>
+			<div class="control-group {% if form.email2.errors %}error{% endif %}">
+				<label class="control-label" for="id_{{ form.email2.html_name }}">Email address confirmation</label>
+				<div class="controls">
+				  <input id="id_{{ form.email2.html_name }}" type="text" name="{{ form.email2.html_name }}"  placeholder="E-mail confirmation">
+				  <span class="help-inline"> {% for error in form.email2.errors %}{{ error }}{% endfor %}</span>
+				</div>
+			</div>
+			  <div class="control-group">
+				<div class="controls">
+				  <button type="submit" class="btn">Register</button>
+				</div>
+			  </div>
+		</form>
+	</div>
+</div>
+
+{% endblock main %}

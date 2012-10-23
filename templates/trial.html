@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block title %}Just Trial Page - Database and Software Research Center{% endblock title %}
+
+{% block headtag %}
+	{{ block.super }}
+{% endblock headtag %}
+
+{% block main %}
+<article>article</article>
+<aside>aside</aside>
+<bdi>Isolates a part of text that might be formatted in a different direction from other text outside it</bdi>
+<command>Defines a command button that a user can invoke</command>
+<details>
+	<summary>Defines a visible heading for a &lt;details&gt; element</summary>
+	Defines additional details that the user can view or hide
+</details>
+<figure>
+	Specifies self-contained content, like illustrations, diagrams, photos, code listings, etc.
+	<figcaption>Defines a caption for a &lt;figure&gt; element</figcaption>
+</figure>
+<mark>Defines marked/highlighted text</mark>
+<meter>Defines a scalar measurement within a known range (a gauge)</meter>
+<nav>Defines navigation links</nav>
+<progress>Represents the progress of a task</progress>
+<section>
+	Defines a section in a document
+</section>
+<time>12-12-2012</time>
+<wbr>Defines a possible line-break</wbr>
+<hr />
+<audio controls="controls">	
+	<source src="song.ogg" type="audio/ogg" />
+	<source src="song.mp3" type="audio/mpeg" />
+	Your browser does not support the audio element.
+</audio>
+
+<video width="320" height="240" controls="controls">
+	<source src="{% static "friends.mp4"%}" type="video/mp4" />
+	<source src="movie.ogg" type="video/ogg" />
+	Your browser does not support the video tag.
+	<track src="{% static "friends_sub2.srt"%}" kind="subtitles" srclang="en" label="English">
+</video>
+	
+<embed>	Defines a container for an external application or interactive content (a plug-in)</embed>
+
+<hr />
+<canvas id="myCanvas" width="200" height="100" style="border:1px solid gray;">Used to draw graphics, on the fly, via scripting (usually JavaScript)</canvas>
+
+<script type="text/javascript">
+	var c=document.getElementById("myCanvas");
+	var ctx=c.getContext("2d");
+	ctx.fillStyle="#FF0000";
+	ctx.fillRect(0,0,150,5);
+</script>
+<p>The getContext("2d") object is a built-in HTML5 object, with many methods to draw paths, boxes, circles, characters, images and more.</p>
+
+
+<hr />
+<datalist>	Specifies a list of pre-defined options for input controls</datalist>
+
+<keygen>	Defines a key-pair generator field (for forms)</keygen>
+<output>	Defines the result of a calculation</output>
+
+{% endblock main %}

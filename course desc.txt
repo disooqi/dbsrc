@@ -1,0 +1,5 @@
+Introduction to Programming using Python
+
+There will be two courses to introduce programming using Python language. The first course teaches the basic feature of programming concepts and python in specific. The second course considers the more advanced feature of Python such as the different data structures, regular expressions, modules, packages, python standard library, files and the general approach of problem-solving paradigm.
+Each class consists of sessions. A session is divided into two parts. The first part is dedicated for theoretically explaining and demonstrating the concepts and the features. However, part two is devoted to programmatically practicing these features. Throughout the two courses, we will build a basic search engine that helps student practicing and using the various topics.
+We will use many techniques during these courses: standard lectures, hands-on demonstrations, individual homeworks, and group discussions.

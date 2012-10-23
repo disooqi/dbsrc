@@ -1,0 +1,9 @@
+{% if allcourses %}
+    <ul>
+    {% for course in allcourses %}
+        <li><a href="/courses/{{ course.id }}/course-info/">{{ course.course_title }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No courses are available.</p>
+{% endif %}

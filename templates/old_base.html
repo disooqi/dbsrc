@@ -1,0 +1,95 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{% block headtag %}
+	<title>{% block title %}Database and Software Research Center - Instituate of Statisitcal Studies and Research{% endblock %}</title>
+	
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<!--<meta charset="utf-8" />-->
+	<link href='http://fonts.googleapis.com/css?family=Dosis|Quantico|Electrolize' rel='stylesheet' type='text/css'>
+	
+	<link href="/main.css" rel="stylesheet" type="text/css" />
+	<link href="{% static "main.css"%}" rel="stylesheet" type="text/css" />
+	
+	<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+	<script type="text/javascript" src="{% static "jquery-1.2.3.min.js"%}"></script>
+	<script type="text/javascript" src="{% static "jquery.easing.min.js"%}"></script>
+	<script type="text/javascript" src="{% static "jquery-1.6.4.min.js"%}"></script>
+	
+
+	<script type="text/javascript"> 
+		$(document).ready(function(){
+		$(".flip").click(function(){
+			$(this).next().slideToggle("slow");
+		  });
+		});
+	</script>
+{% endblock headtag %}
+</head>
+<body>
+	{% block feedback %}<a  id="feedback" class="big-btn" href="/contactus/" >Feedback</a>{% endblock %}
+	<header>
+	{% block header %}
+		<div id="header">
+			<div id="menu-bar">
+				<ul>
+					<li><a href="/">Home</a></li>
+					<li><a href="/courses/">Courses</a></li>
+					<li><a href="/events/?page=1">News and Events</a></li>
+					<li><a href="/staff/">People</a></li>
+					<li><a href="/contactus/">Contact</a></li>
+					<li><a href="/about/">About</a></li>
+				</ul>
+			</div>
+			
+			<div id="ctrl-bar">			
+				{% if user.is_authenticated %}
+					<div class="authenticated">Welcome [<a href="/accounts/profile/">{{user}}</a>]   
+												   [<a href="/accounts/logout/">signout</a>]
+					</div>				
+					{# <a class="big-btn" href="/accounts/logout/">account</a> #}
+					
+				{% else %}
+					<a class="big-btn" href="/accounts/signup/">signup</a>
+					<a class="big-btn login-window" href="/accounts/login/">Login</a>
+					{% comment %}<a class="big-btn login-window" href="#login-box">Login</a>
+					{% include "registration/login.html" %}{% endcomment %}
+				{% endif %}
+				<br />
+			</div>
+			<input id="search" type="text" width="100px" />
+			{% block image %}{% endblock image %}
+			
+		</div>
+	{% endblock header %}
+	</header>
+	<div id="main">
+	{% block main %}
+
+	{% endblock main %}
+	</div>
+	<div id="list1" class="link-list">
+		{% block right_list %}
+				<div class="content-block">
+					<div class="cb-title">Connect To Us</div>
+					<div class="cb-body">
+						<!--facebook widget-->
+						
+						<iframe style="width:100%;" src="https://www.facebook.com/plugins/like.php?href=https://www.facebook.com/dbsrc"
+							scrolling="no" frameborder="0" style="border:none; width:450px; height:80px"></iframe>		
+						
+					</div>			
+				</div>
+				
+				{% include "polls/home_poll.html" %}
+		{% endblock right_list %}
+	</div>
+	<!--<div id="list2" class="link-list"></div>-->
+	<footer>
+	<div id="footer">
+		<div id='cr'><p id="copyright">Copyright <span style="font-size:20px;">&#169;</span> 2012 to <b>Institute of Statisitcal Studies and Research</b></p></div>
+	</div>
+	</footer>
+</body>
+</html>

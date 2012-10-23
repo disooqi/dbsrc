@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %} {{ title }} - {% endblock title %}
+{% block main %}
+<div class="row">
+	<div class="span8">
+		 <h2>Logged out</h2>   
+		<hr />
+		<p>Thanks for spending some quality time with <a href="/">{{ site }}</a> today. 
+			<a class="btn btn-small btn-primary" href="/accounts/login/">Log in again</a>
+		</p>
+	</div>
+</div>
+<br /><br /><br /><br /><br /><br /><br /><br />
+{% endblock main %}

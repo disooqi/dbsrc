@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+{% block title %}{{type}} My courses - {% endblock title %}
+{% block main %}
+<div class="row">
+	<div class="span8">
+		<ul class="breadcrumb">
+			<li><a href="#">Home</a> <span class="divider">/</span></li>
+			<li><a href="#">My profile</a> <span class="divider">/</span></li>
+			<li class="active">My courses</li>
+		</ul>
+	<h2>My Courses</h2>
+		<hr />
+			<div class="accordion" id="accordion2">
+                <div class="accordion-group">
+                  <div class="accordion-heading">
+                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
+                      Introduction to C++
+                    </a>
+                  </div>
+                  <div id="collapseOne" class="accordion-body collapse">
+                    <div class="accordion-inner">
+					<ul>
+						<li class="course course-small success"><a  href="/courses/my_courses/1/">started in: 25 Oct 2012 <br />end date 21 Nov 2012</a></li>
+						<li class="course course-small success"><a  href="/courses/{{ type.id }}/">started in: 25 Oct 2012 <br />end date 21 Nov 2012</a></li>
+						<li class="course course-small failure"><a  href="/courses/{{ type.id }}/">started in: 25 Oct 2012 <br />end date 21 Nov 2012</a></li>
+						<li class="course course-small success"><a  href="/courses/{{ type.id }}/">started in: 25 Oct 2012 <br />end date 21 Nov 2012</a></li>
+						<li class="course course-small success"><a  href="/courses/{{ type.id }}/">started in: 25 Oct 2012 <br />end date 21 Nov 2012</a></li>
+						<li class="course course-small failure"><a  href="/courses/{{ type.id }}/">started in: 25 Oct 2012 <br />end date 21 Nov 2012</a></li>
+						<li class="course course-small "><a  href="/courses/{{ type.id }}/">started in: 25 Oct 2012 <br />end date 21 Nov 2012</a></li>
+					<ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-group">
+                  <div class="accordion-heading" >
+                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">
+                      Programming via Python
+                    </a>
+                  </div>
+                  <div id="collapseTwo" class="accordion-body collapse">
+                    <div class="accordion-inner">
+						<li class="course course-small failure"><a  href="/courses/{{ type.id }}/">started in: 25 Oct 2012 <br />end date 21 Nov 2012</a></li>
+						<li class="course course-small failure"><a  href="/courses/{{ type.id }}/">started in: 25 Oct 2012 <br />end date 21 Nov 2012</a></li>
+						<li class="course course-small failure"><a  href="/courses/{{ type.id }}/">started in: 25 Oct 2012 <br />end date 21 Nov 2012</a></li>
+						<li class="course course-small failure"><a  href="/courses/{{ type.id }}/">started in: 25 Oct 2012 <br />end date 21 Nov 2012</a></li>
+						<li class="course course-small failure"><a  href="/courses/{{ type.id }}/">started in: 25 Oct 2012 <br />end date 21 Nov 2012</a></li>
+						<li class="course course-small failure"><a  href="/courses/{{ type.id }}/">started in: 25 Oct 2012 <br />end date 21 Nov 2012</a></li>
+						<li class="course course-small "><a  href="/courses/{{ type.id }}/">started in: 25 Oct 2012 <br />end date 21 Nov 2012</a></li>
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-group">
+                  <div class="accordion-heading">
+                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseThree">
+                      Pre-deploma Math Class
+                    </a>
+                  </div>
+				  <div id="collapseThree" class="accordion-body collapse">
+                    <div class="accordion-inner">
+						<li class="course course-small failure"><a  href="/courses/{{ type.id }}/">started in: 25 Oct 2012 <br />end date 21 Nov 2012</a></li>
+						<li class="course course-small failure"><a  href="/courses/{{ type.id }}/">started in: 25 Oct 2012 <br />end date 21 Nov 2012</a></li>
+						<li class="course course-small failure"><a  href="/courses/{{ type.id }}/">started in: 25 Oct 2012 <br />end date 21 Nov 2012</a></li>
+						<li class="course course-small failure"><a  href="/courses/{{ type.id }}/">started in: 25 Oct 2012 <br />end date 21 Nov 2012</a></li>
+						<li class="course course-small failure"><a  href="/courses/{{ type.id }}/">started in: 25 Oct 2012 <br />end date 21 Nov 2012</a></li>
+						<li class="course course-small failure"><a  href="/courses/{{ type.id }}/">started in: 25 Oct 2012 <br />end date 21 Nov 2012</a></li>
+						<li class="course course-small "><a  href="/courses/{{ type.id }}/">started in: 25 Oct 2012 <br />end date 21 Nov 2012</a></li>
+                    </div>
+                  </div>
+                </div>
+              </div>
+	</div>
+</div>
+{% endblock main %}

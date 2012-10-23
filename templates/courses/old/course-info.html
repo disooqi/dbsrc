@@ -1,0 +1,13 @@
+{% if course %}
+	{{ course.course_title }}
+	<br />
+	{{course.instructor}}
+	<br />
+	{{course.start_date}}
+	<br />
+	{{ course.fees }}
+	<br />
+	<a href="/courses/{{ course.id }}/register/">register</a>
+{% else %}
+    <p>No course is available.</p>
+{% endif %}

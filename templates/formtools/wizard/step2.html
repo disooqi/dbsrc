@@ -1,0 +1,88 @@
+			{% if wizard.form.errors %}
+			<div class="alert alert-error">
+					<ul>
+						<li>Check error blow</li>
+					</ul>
+					{{ wizard.form.non_field_errors }}					
+			</div>
+			{% endif %}	
+			{% for hidden in wizard.form.hidden_fields %}
+				{{ hidden }}
+			{% endfor %}
+			<div class="control-group {% if wizard.form.first_name.errors %}error{% endif %}">
+				<label class="control-label" for="id_{{ wizard.form.first_name.html_name }}">{{ wizard.form.first_name.label }}</label>
+				<div class="controls">					
+					<input id="id_{{ wizard.form.first_name.html_name }}" type="text" name="{{ wizard.form.first_name.html_name }}" value="{% firstof wizard.form.first_name.value %}" placeholder="{{ wizard.form.first_name.label }}" maxlength="20">
+					<span class="help-inline"> {% for error in wizard.form.first_name.errors %}{{ error }}{% endfor %}</span>
+				</div>
+			</div>
+			<div class="control-group {% if wizard.form.last_name.errors %}error{% endif %}">
+				<label class="control-label" for="id_{{ wizard.form.last_name.html_name }}">{{ wizard.form.last_name.label }}</label>
+				<div class="controls">					
+					<input id="id_{{ wizard.form.last_name.html_name }}" type="text" name="{{ wizard.form.last_name.html_name }}" value="{% firstof wizard.form.last_name.value %}" placeholder="{{ wizard.form.last_name.label }}" maxlength="20">
+					<span class="help-inline"> {% for error in wizard.form.last_name.errors %}{{ error }}{% endfor %}</span>
+				</div>
+			</div>
+			<div class="control-group {% if wizard.form.social_id.errors %}error{% endif %}">
+				<label class="control-label" for="id_{{ wizard.form.social_id.html_name }}">{{ wizard.form.social_id.label }}</label>
+				<div class="controls">					
+					<input id="id_{{ wizard.form.social_id.html_name }}" type="text" name="{{ wizard.form.social_id.html_name }}" value="{% firstof wizard.form.social_id.value %}" placeholder="{{ wizard.form.social_id.label }}" maxlength="20">
+					<span class="help-inline"> {% for error in wizard.form.social_id.errors %}{{ error }}{% endfor %}</span>
+				</div>
+			</div>
+			<div class="control-group {% if wizard.form.gender.errors %}error{% endif %}">
+				<label class="control-label" for="id_{{ wizard.form.gender.html_name }}">{{ wizard.form.gender.label }}</label>
+				<div class="controls">					
+					<!--{# also {{ wizard.form.gender }} #}-->
+					<select name="{{ wizard.form.gender.html_name }}" id="id_{{ wizard.form.gender.html_name }}">
+						<option value="">Choose gender</option>
+						<option value="M">Male</option>
+						<option value="F">Female</option>
+					</select>				
+					<span class="help-inline"> {% for error in wizard.form.gender.errors %}{{ error }}{% endfor %}</span>
+				</div>
+			</div>
+			<div class="control-group {% if wizard.form.dob_day.errors or wizard.form.dob_month.errors or wizard.form.dob_year.errors %}error{% endif %}">
+				<label class="control-label" for="id_dob">Date of Birth</label>
+				<div class="controls">					
+					<!--{#<input id="id_{{ wizard.form.dob.html_name }}" type="text" name="{{ wizard.form.dob.html_name }}" placeholder="{{ wizard.form.dob.label }}">#}	-->				
+					<select id="id_{{ wizard.form.dob_month.html_name }}" style="position:relative;bottom:5px;width:110px;" name="{{ wizard.form.dob_month.html_name }}" value="{% firstof wizard.form.dob_month.value %}">
+						<option value="">Months</option>
+						<option value="1">January</option>
+						<option value="2">February</option>
+						<option value="3">March</option>
+						<option value="4">April</option>
+						<option value="5">May</option>
+						<option value="6">June</option>
+						<option value="7">July</option>
+						<option value="8">August</option>
+						<option value="9">September</option>
+						<option value="10">October</option>
+						<option value="11">November</option>
+						<option value="12">December</option>
+					</select>
+					<input id="id_{{ wizard.form.dob_day.html_name }}" type="text" name="{{ wizard.form.dob_day.html_name }}" value="{% firstof wizard.form.dob_day.value %}" placeholder="Day" maxlength="2" style="width:30px; margin-bottom:10px;">
+					<input id="id_{{ wizard.form.dob_year.html_name }}" type="text" name="{{ wizard.form.dob_year.html_name }}" value="{% firstof wizard.form.dob_year.value %}" placeholder="Year" maxlength="4" style="width:45px; margin-bottom:10px;">
+					<span class="help-inline">
+						<ul>
+							{% for error in wizard.form.dob_day.errors %}<li> Day Field: {{ error }}</li>{% endfor %}
+							 {% for error in wizard.form.dob_month.errors %}<li>Month Field: {{ error }}</li>{% endfor %}
+							{% for error in wizard.form.dob_year.errors %}<li>Year Field: {{ error }}</li>{% endfor %}
+						</ul>
+					</span>
+				</div>
+			</div>
+			<div class="control-group {% if wizard.form.country.errors %}error{% endif %}">
+				<label class="control-label" for="id_{{ wizard.form.country.html_name }}">{{ wizard.form.country.label }}</label>
+				<div class="controls">					
+					<input id="id_{{ wizard.form.country.html_name }}" type="text" name="{{ wizard.form.country.html_name }}" value="{% firstof wizard.form.country.value %}" placeholder="{{ wizard.form.country.label }}" maxlength="20">
+					<span class="help-inline"> {% for error in wizard.form.country.errors %}{{ error }}{% endfor %}</span>
+				</div>
+			</div>
+			<div class="control-group {% if wizard.form.academic_qualification.errors %}error{% endif %}">
+				<label class="control-label" for="id_{{ wizard.form.academic_qualification.html_name }}">{{ wizard.form.academic_qualification.label }}</label>
+				<div class="controls">					
+					<input id="id_{{ wizard.form.academic_qualification.html_name }}" type="text" name="{{ wizard.form.academic_qualification.html_name }}" value="{% firstof wizard.form.academic_qualification.value %}" placeholder="{{ wizard.form.academic_qualification.label }}" maxlength="20">
+					<span class="help-inline"> {% for error in wizard.form.academic_qualification.errors %}{{ error }}{% endfor %}</span>
+				</div>
+			</div>

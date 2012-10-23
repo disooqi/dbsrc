@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% block title %} Signup - step 3 - {% endblock title %}
+{% block main %}
+<div class="row">
+	<div class="span8">
+	<br />
+		<div class="progress progress-warning progress-striped active">
+		  <div class="bar" style="width: 66%"></div>
+		</div>
+	
+	<h2>Create new account - contact information</h2>
+	<hr />
+		<form class="form-horizontal" method="post" action="/accounts/signup/identityinfo/">{% csrf_token %}
+			{% if form.errors %}
+			<div class="alert alert-error">
+					<ul>
+						<li>Check error blow</li>
+					</ul>
+					{{ form.non_field_errors }}					
+			</div>
+			{% endif %}	
+			{% for hidden in form.hidden_fields %}
+				{{ hidden }}
+			{% endfor %}
+
+			<div class="control-group {% if form.cellular.errors %}error{% endif %}">
+				<label class="control-label" for="id_{{ form.cellular.html_name }}">{{ form.cellular.label }}</label>
+				<div class="controls">					
+					<input id="id_{{ form.cellular.html_name }}" type="text" name="{{ form.cellular.html_name }}" placeholder="{{ form.cellular.label }}" maxlength="20">
+					<span class="help-inline"> {% for error in form.cellular.errors %}{{ error }}{% endfor %}</span>
+				</div>
+			</div>
+			<div class="control-group {% if form.home_phone.errors %}error{% endif %}">
+				<label class="control-label" for="id_{{ form.home_phone.html_name }}">{{ form.home_phone.label }}</label>
+				<div class="controls">					
+					<input id="id_{{ form.home_phone.html_name }}" type="text" name="{{ form.home_phone.html_name }}" placeholder="{{ form.home_phone.label }}" maxlength="20">
+					<span class="help-inline"> {% for error in form.home_phone.errors %}{{ error }}{% endfor %}</span>
+				</div>
+			</div>
+			<div class="control-group {% if form.address.errors %}error{% endif %}">
+				<label class="control-label" for="id_{{ form.address.html_name }}">{{ form.address.label }}</label>
+				<div class="controls">
+				  <textarea id="id_{{ form.address.html_name }}" class="input-xxlarge" name="{{ form.address.html_name }}" rows="5" cols="40" placeholder="Address"></textarea>
+				  <span class="help-inline">{% for error in form.address.errors %}{{ error }}{% endfor %}</span>
+				</div>
+			</div>
+			  <div class="control-group">
+				<div class="controls">
+				  <button type="submit" class="btn">Register</button>
+				</div>
+			  </div>
+		</form>
+	</div>
+</div>
+{% endblock main %}

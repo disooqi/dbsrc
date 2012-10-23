@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+<!--{#{% block head %}{{ wizard.form.media }}{% endblock %}#}-->
+{% block title %} Signup wizard - {% endblock title %}
+{% block main %}
+<div class="row">
+	<div class="span8">
+		<br /><br />
+		<!--<div class="progress progress progress-striped active">
+		  <div class="bar" style="width: 66%"></div>
+		</div>-->
+
+<!--{# <p>Step {{ wizard.steps.step1 }} of {{ wizard.steps.count }}</p> #}-->
+		<form class="form-horizontal" action="" method="post">{% csrf_token %}
+			<ul class="breadcrumb wizard">
+				<li id="wizard-step-account" class="active">
+					<button class="btn-link " name="wizard_goto_step" type="submit" value="{{ wizard.steps.first }}">					
+							<span class="step">1. </span>
+							<span>Account set up</span>
+					</button>
+					<span class="wizard-arrow"></span>
+				</li>
+				<li id="wizard-step-connect">
+					<button class="btn-link " name="wizard_goto_step" type="submit" value="{{ wizard.steps.next }}">
+						<span class="step">2. </span><span>Identity information</span>
+						<span class="wizard-arrow"></span>
+					</button>
+				</li>
+				<li id="wizard-step-connect">
+					<button class="btn-link " name="wizard_goto_step" type="submit" value="{{ wizard.steps.last }}">
+						<span class="step">3. </span><span>Contact information</span>
+						<span class="wizard-arrow"></span>
+					</button>
+				</li>
+			</ul>
+		<!--{#  {{ wizard.form }}   #}-->
+		{{ wizard.management_form }}
+		{% if wizard.steps.step1 == 1 %}
+			{% include "formtools/wizard/step1.html" %}
+		{% elif wizard.steps.step1 == 2 %}
+			{% include "formtools/wizard/step2.html" %}
+		{% elif wizard.steps.step1 == 3 %}
+			{% include "formtools/wizard/step3.html" %}
+		{% endif %}
+		
+
+			<div class="control-group">
+				<div class="controls">
+				  <button type="submit" class="btn">Register</button>
+				  {% if wizard.steps.prev %}
+						<button class="btn pull-right" name="wizard_goto_step" type="submit" value="{{ wizard.steps.first }}">first step</button>
+						<button class="btn pull-right" name="wizard_goto_step" type="submit" value="{{ wizard.steps.prev }}">prev step</button>
+				{% endif %}
+				</div>
+			  </div>
+		</form>
+	</div>
+</div>
+{% endblock main %}
